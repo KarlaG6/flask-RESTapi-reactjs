@@ -17,6 +17,14 @@ class Song(Model):
     def to_json(self):
         return {'id': self.id, 'title': self.title, 'author': self.author, 'version': self.version}
 
+    @classmethod
+    def new(cls, title, author, version):
+        try:
+            return cls.create(title=title, author=author, version=version)
+        except IntegrityError:
+            print( "Error de integridad")
+            return None
+
 def create_song():
     title = 'Lost Woods'
     author = 'Zelda'

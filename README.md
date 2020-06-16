@@ -3,12 +3,12 @@
 
 # Instalar:
 
-#python3 -m venv kvenv 
-#pip install Flask
-#pip install peewee
-#sudo apt install curl
-#pip install pymysql
-#pip intall cryptography
+#python3 -m venv kvenv                                                                                                       
+#pip install Flask                                                                                                                  
+#pip install peewee                                                                                                             
+#sudo apt install curl                                                                                                            
+#pip install pymysql                                                                                                                      
+#pip install cryptography                                                                        
 
 # Comandos de curl
 

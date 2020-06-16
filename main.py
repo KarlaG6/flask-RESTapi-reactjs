@@ -68,6 +68,13 @@ def put_song(song_id):
         abort(422)
 
 
+@app.route('/code/api/v1.0/songs/<int:song_id>', methods=['DELETE'])
+def delete_song(song_id):
+    song = try_song(song_id)
+    if song.delete_instance():
+        return jsonify( generate_response( data={}))
+    else:
+        abort(422)
 def try_song(song_id):
     try:
         return Song.get(Song.id == song_id)
@@ -80,3 +87,6 @@ def generate_response(status = 200, data = None, error = None):
 if __name__ == '__main__':
     initialize()
     app.run(host='127.0.0.1', port=8000, debug=DEBUG)
+
+
+# falta: que solo los usuarios con unnivel avanzado puedan eliminar, crear y mod, tambien vaqlidar que dentro del request.json siempre vengan todos los atributos pedidos

@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/lali/dev-pro/python-pro/REST_api_flask/kvenv"
+VIRTUAL_ENV="/home/lali/dev-pro/finalBetaProject/kvenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/lali/dev-pro/python-pro/REST_api_flask/kvenv"
+set -gx VIRTUAL_ENV "/home/lali/dev-pro/finalBetaProject/kvenv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

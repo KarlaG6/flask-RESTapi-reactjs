@@ -1,7 +1,7 @@
 from peewee import *
 import datetime
 
-DATABASE = MySQLDatabase('REST', host='localhost', user='root', passwd='toor')
+DATABASE = MySQLDatabase('finalProject', host='localhost', user='root', passwd='toor')
 
 class Song(Model):
     class Meta:
@@ -11,7 +11,7 @@ class Song(Model):
     title = CharField(unique=False, max_length=250)
     author = CharField(unique=False, max_length=250)
     version = TextField()
-    created_at = DateTimeField(default = datetime.datetime.now())
+    created_at = DateTimeField(default=datetime.datetime.now())
 
     # Se pasan los campos que se quieren mostrar en la api
     def to_json(self):

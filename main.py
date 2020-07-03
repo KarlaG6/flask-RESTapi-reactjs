@@ -1,5 +1,6 @@
 from flask import Flask, g, jsonify, abort, request
 from models import initialize, Song, DATABASE
+import time
 
 app = Flask(__name__)
 DEBUG = True
@@ -25,6 +26,10 @@ def wrong_request(error):
 @app.errorhandler(422)
 def unprocessable_entity(error):
     return jsonify( generate_response(422, error='Unprocessable entity'))
+
+@app.route('/time')
+def get_current_time():
+    return {'time': time.time()}
 
 @app.route('/code/api/v1.0/songs', methods=['GET'])
 def get_songs():

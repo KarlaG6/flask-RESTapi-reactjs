@@ -1,5 +1,5 @@
 import React, {Fragment, useState} from 'react';
-import uuid from 'uuid/v4';
+import uuid from 'uuid/dist/v4';
 import PropTypes from 'prop-types';
 
 const FormSong = ({crearSong}) => {
@@ -27,7 +27,7 @@ const FormSong = ({crearSong}) => {
             setError(true);
             return;
         }
-        song.id = uui(); 
+        song.id = uuid(); 
 
         crearSong(song);
 
@@ -44,7 +44,7 @@ const FormSong = ({crearSong}) => {
 
             {error ? <p className=" alerta-error">Todos los campos son obligatorios</p> : null}
 
-            <form onSubmit={submitSong}>
+            <form onSubmit={submitSong} action="http://127.0.0.1:5000/code/api/v1.0/songs/" method="post">
                 <label>Nombre</label>
                 <input type="text" name="title" className="u-full-width" onChange={handleChange} 
                        value={title} placeholder="Nombre de la cancion" />
@@ -57,7 +57,7 @@ const FormSong = ({crearSong}) => {
                 <input type="text" name="version" className="u-full-width" onChange={handleChange} 
                     value={version} placeholder="Nombre de la version" />
 
-            <button type="submit" className="u-fill-width button-primary" >Agregar cancion</button>
+                <button type="submit" className="u-fill-width button-primary" >Agregar cancion</button>
             </form>
         </Fragment>
      );

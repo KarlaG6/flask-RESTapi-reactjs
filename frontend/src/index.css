@@ -9,6 +9,7 @@ body {
   min-height: 100%;
   padding-bottom: 5rem;
 }
+
 h1, h2  {
   color: white;
   padding: 3rem 0;
@@ -45,33 +46,38 @@ input[type="date"],
 input[type="time"] {
   height: 38px;
     padding: 6px 10px;
-    background-color: #fff;
-    border: 1px solid #D1D1D1;
+    background-color: rgba(0, 0, 0, 0.726);
+    border: none;
     border-radius: 4px;
     box-shadow: none;
     box-sizing: border-box;
 }
 
-.cita {
-  padding: 2rem;
-  background: white;
-  border-bottom: 1px solid #e1e1e1;
-  color: black;
+input[type="text"] {
+  background-color: rgba(0, 0, 0, 0.726) !important;
+  border: none !important;
 }
 
-.cita p {
+.song {
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.534);
+  border-bottom: 1px solid #e1e1e1;
+  color: white;
+}
+
+.song p {
   font-weight: bold;
   margin-bottom: .8rem;
 }
-.cita p span {
+.song p span {
   font-weight: normal;
 
 }
-.cita:first-of-type {
+.song:first-of-type {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
 }
-.cita:last-of-type {
+.song:last-of-type {
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
 }

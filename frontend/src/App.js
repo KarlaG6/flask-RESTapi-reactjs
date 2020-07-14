@@ -1,24 +1,28 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import './index.css';
 import Song from './components/Song';
 import FormSong from './components/FormSong';
 
+
+
 function App() {
 
-  const [currentTime, setCurrentTime] = useState(0);
+  // const [currentTime, setCurrentTime] = useState(0);
 
+  // useEffect(() => {
+  //   fetch('/time').then(res => res.json()).then(data => {
+  //     setCurrentTime(data.time);
+  //   });
+  // }, []);
+
+  
+
+  const [mysongs, handlermySongs] = useState([]);
   useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
+    fetch('/code/api/v1.0/songs').then(res => res.json()).then(data => {
+      handlermySongs(data['data']);
     });
   }, []);
 
-  const [song, handlerSongs] = useState('');
-  useEffect(() => {
-    fetch('/code/api/v1.0/songs/2').then(res => res.json()).then(data => {
-      handlerSongs(data['data'].title);
-    });
-  }, []);
 
   let songsInit = JSON.parse(localStorage.getItem('songs'));
   if( !songsInit) {
@@ -37,20 +41,21 @@ function App() {
   }, [songs]);// pasamos el array vacío para que no se cicle cuando api, cada que cambie el state de songs se exe
 
   //funcion que tomará las songs actuales y agregará la nueva
-  const crearSong = cita => {
+  const crearSong = song => {
     handleCitas([
       ...songs,
-      cita
-    ])
+      song
+    ]);
+    // aqui incluire mi metodo post de flask
   }
   const eliminarSong = id => {
-    const nuevoSong = songs.filter( cita => cita.id !== id);
+    const nuevoSong = songs.filter( song => song.id !== id);
     handleCitas(nuevoSong)
   }
   const titulo = songs.length === 0 ? 'No Hay Canciones' : 'Administra tus Canciones';
 
   return (
-    <Fragment>
+    <Fragment >
       <h1>Canciones diarias</h1>
       <div className="container">
         <div className="row">
@@ -62,6 +67,10 @@ function App() {
             { songs.map( song => (
                 <Song key={song.id} song={song} eliminarSong={eliminarSong} />
               ))
+            }
+            { mysongs.map( mysong => (
+              <Song key={mysong.id} song={mysong}  />
+            ))
             }
           </div>
         </div>

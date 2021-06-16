@@ -97,3 +97,6 @@ input[type="text"] {
   text-align: center;
   font-family:  'Staatliches', cursive;
 } 
+.txt-white {
+  color: white;
+}

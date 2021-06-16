@@ -46,15 +46,15 @@ const FormSong = ({crearSong}) => {
 
             <form onSubmit={submitSong} action="http://127.0.0.1:5000/code/api/v1.0/songs/" method="post">
                 <label>Nombre</label>
-                <input type="text" name="title" className="u-full-width" onChange={handleChange} 
+                <input type="text" name="title" className="u-full-width txt-white" onChange={handleChange} 
                        value={title} placeholder="Nombre de la cancion" />
 
                 <label>Autor</label>
-                <input type="text" name="author" className="u-full-width" onChange={handleChange} 
+                <input type="text" name="author" className="u-full-width txt-white" onChange={handleChange} 
                     value={author} placeholder="Nombre del autor" />
 
                 <label>Version</label>
-                <input type="text" name="version" className="u-full-width" onChange={handleChange} 
+                <input type="text" name="version" className="u-full-width txt-white" onChange={handleChange} 
                     value={version} placeholder="Nombre de la version" />
 
                 <button type="submit" className="u-fill-width button-primary" >Agregar cancion</button>
